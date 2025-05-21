@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informazioni sui Clienti</title>
+    {{ url_for('static', filename='style.css') }}
+</head>
+<body>
+    <header>
+        <h1>Informazioni sui Clienti</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>#customer-insightsInformazioni Dettagliate</a></li>
+            <li>#key-initiativesIniziative Chiave</a></li>
+            <li>#collaboration-ideasIdee di Collaborazione</a></li>
+            <li>#employee-distributionDistribuzione dei Dipendenti</a></li>
+            <li>#brand-evaluationValutazione del Marchio</a></li>
+            <li>#support-strategiesStrategie di Supporto</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="filters">
+            <h2>Filtri di Ricerca</h2>
+            <form>
+                <label for="settore">Settore:</label>
+                <input type="text" id="settore" name="settore">
+                <label for="iniziative">Iniziative:</label>
+                <input type="text" id="iniziative" name="iniziative">
+                <label for="dipendenti">Dipendenti:</label>
+                <input type="text" id="dipendenti" name="dipendenti">
+                <button type="submit">Cerca</button>
+            </form>
+        </section>
+        <section id="customer-insights">
+            <h2>Informazioni Dettagliate sui Clienti</h2>
+            <ul>
+                {% for cliente in clienti %}
+                <li>{{ cliente.nome }} - {{ cliente.settore }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section id="key-initiatives">
+            <h2>Iniziative Chiave</h2>
+            <ul>
+                {% for cliente in clienti %}
+                <li>{{ cliente.nome }} - {{ cliente.iniziative }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section id="collaboration-ideas">
+            <h2>Idee di Collaborazione</h2>
+            <p>Suggerisci alcune idee per collaborare con i tuoi clienti.</p>
+        </section>
+        <section id="employee-distribution">
+            <h2>Distribuzione dei Dipendenti</h2>
+            <ul>
+                {% for cliente in clienti %}
+                <li>{{ cliente.nome }} - {{ cliente.dipendenti }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section id="brand-evaluation">
+            <h2>Valutazione del Marchio</h2>
+            <ul>
+                {% for cliente in clienti %}
+                <li>{{ cliente.nome }} - {{ cliente.valutazione_marchio }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section id="support-strategies">
+            <h2>Strategie di Supporto</h2>
+            <ul>
+                {% for cliente in clienti %}
+                <li>{{ cliente.nome }} - {{ cliente.supporto }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Informazioni sui Clienti. Tutti i diritti riservati.</p>
+    </footer>
+</body>
+</html>
