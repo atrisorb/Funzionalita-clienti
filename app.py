@@ -1,9 +1,11 @@
 from flask import Flask, render_template, request
-from flask_sqlalchemy import SQLAlchemy
+from flask import SQLAlchemy
 import os
+from flask import render_template
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///clienti.db'
+me__
+app.config['SQLA']
+app = Flask(__naLCHEMY_DATABASE_URI'] = 'sqlite:///clienti.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['PORT'] = int(os.environ.get('PORT', 10000))
 db = SQLAlchemy(app)
@@ -18,6 +20,8 @@ class Cliente(db.Model):
     supporto = db.Column(db.Text, nullable=False)
 
 @app.route('/')
+def index():
+    return render_template('index.html')
 def home():
     filtro_settore = request.args.get('settore')
     filtro_iniziative = request.args.get('iniziative')
